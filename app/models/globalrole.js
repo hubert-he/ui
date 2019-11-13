@@ -5,7 +5,8 @@ import { inject as service } from '@ember/service';
 const BASE = 'user-base';
 const USER = 'user';
 const ADMIN = 'admin';
-const SPECIAL = [BASE, ADMIN, USER];
+const FIBODT = 'fibodt-user';
+const SPECIAL = [BASE, ADMIN, FIBODT, USER];
 
 export default Resource.extend({
 
@@ -33,9 +34,11 @@ export default Resource.extend({
   isAdmin: computed('id', function() {
     return get(this, 'id') === ADMIN;
   }),
-
-  isCustom: computed('isAdmin', 'isUser', 'isBase', function() {
-    return !get(this, 'isAdmin') && !get(this, 'isBase') && !get(this, 'isUser');
+  isFibodt: computed('id', function(){
+    return get(this, 'id') === FIBODT;
+  }),
+  isCustom: computed('isAdmin', 'isUser', 'isFibodt', 'isBase', function() {
+    return !get(this, 'isAdmin') && !get(this, 'isBase') && !get(this, 'isUser') && !get(this, 'isFibodt');
   }),
 
   displayName: computed('id', 'name', 'intl.locale', function() {

@@ -5184,13 +5184,20 @@ formEnvVar:
 formGlobalRoles:
   title: 全局角色
   description: 控制用户管理整个{appName}安装的访问权限。
+  loginError: Fibodt-CloudMan提醒你您： 缺少必要的登录访问权限类别，请选择管理员、标准用户、Fibodt项目管理员用户或者普通用户。
   mode:
     admin:
       label: 管理员
       detail: 管理员完全控制所有集群中的全部安装和所有资源。
     user:
       label: 标准用户
-      detail: 标准用户可以创建新的集群并管理他们已被授权访问的集群和项目。
+      detail: 标准用户可以创建新的集群并管理他们已被授权访问的集群和项目，Fibodt普通运维人员权限。
+    fibodt:
+      label: Fibodt 项目管理员用户
+      detail: 为Fibodt项目管理员定制，仅可以管理已授权的项目，不能创建和管理集群。
+    userBase:
+      label: 普通用户
+      detail: 仅能登录的普通用户，Fibodt的普通开发人员权限，可在项目范围进行授权。
     custom:
       label: 自定义
       detail: 为这个用户选择独立的权限。
